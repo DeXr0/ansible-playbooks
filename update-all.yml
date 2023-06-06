@@ -1,0 +1,64 @@
+- name: Update pihole 01
+  hosts: "ct-phole-01.xgs.wtf"
+  become: yes
+  tasks:
+  - name: Update Os ct-phole-01.xgs.wtf
+    apt:
+      update_cache: yes
+      upgrade: 'yes'
+
+  - name: Reboot ct-phole-01.xgs.wtf
+    reboot:
+      reboot_timeout: 3600
+
+- name: Update pihole 02
+  hosts: "ct-phole-02.xgs.wtf"
+  become: yes
+  tasks:
+  - name: Update Os ct-phole-02.xgs.wtf
+    apt:
+      update_cache: yes
+      upgrade: 'yes'
+
+  - name: Reboot ct-phole-02.xgs.wtf
+    reboot:
+      reboot_timeout: 3600
+
+- name: Update docker-01.xgs.wtf
+  hosts: "docker-01.xgs.wtf"
+  become: yes
+  tasks:
+  - name: Update Os docker-01.xgs.wtf
+    apt:
+      update_cache: yes
+      upgrade: 'yes'
+
+  - name: Reboot docker-01.xgs.wtf
+    reboot:
+      reboot_timeout: 3600
+
+- name: Update pihole 02
+  hosts: "webhost-01.xgs.wtf"
+  become: yes
+  tasks:
+  - name: Update Os webhost-01.xgs.wtf
+    apt:
+      update_cache: yes
+      upgrade: 'yes'
+
+  - name: Reboot webhost-01.xgs.wtf
+    reboot:
+      reboot_timeout: 3600
+
+- name: Update mc-host-01
+  hosts: "mc-host-01.xgs.wtf"
+  become: yes
+  tasks:
+  - name: Update Os mc-host-01.xgs.wtf
+    apt:
+      update_cache: yes
+      upgrade: 'yes'
+
+  - name: Reboot mc-host-01.xgs.wtf
+    reboot:
+      reboot_timeout: 3600 

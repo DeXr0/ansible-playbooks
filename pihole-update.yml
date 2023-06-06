@@ -1,0 +1,32 @@
+- name: Update pihole 01
+  hosts: "ct-phole-01.xgs.wtf"
+  become: yes
+  tasks:
+  - name: Update Os ct-phole-01.xgs.wtf
+    apt:
+      update_cache: yes
+      upgrade: 'yes'
+
+  - name: Update pihole ct-phole-01.xgs.wtf
+    shell: pihole -up
+
+  - name: Reboot ct-phole-01.xgs.wtf
+    reboot:
+      reboot_timeout: 3600
+
+- name: Update pihole 02
+  hosts: "ct-phole-02.xgs.wtf"
+  become: yes
+  tasks:
+  - name: Update Os ct-phole-02.xgs.wtf
+    apt:
+      update_cache: yes
+      upgrade: 'yes'
+
+  - name: Update pihole ct-phole-02.xgs.wtf
+    shell: pihole -up
+
+  - name: Reboot ct-phole-02.xgs.wtf
+    reboot:
+      reboot_timeout: 3600
+ 
